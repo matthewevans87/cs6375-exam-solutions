@@ -1,0 +1,82 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{algorithm}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{algpseudocode}
+\usepackage[margin=1in]{geometry}
+\pgfplotsset{compat=1.18}
+
+\newcommand{\examtitle}{SEMESTER YEAR - Midterm NUMBER}
+\newcommand{\examAuthor}{Prof. Vibhab Gogate}
+
+\title{\examtitle~Solutions}
+\author{UTD ECS et al.}
+
+\begin{document}
+
+\maketitle
+
+\section*{Question 1}
+\subsection*{Problem Statement}
+Write a recursive algorithm to compute the $n$-th Fibonacci number. The Fibonacci sequence is defined as follows:
+
+\subsection*{Solution}
+\begin{algorithm}
+    \caption{Fibonacci Sequence}
+    \begin{algorithmic}[1]
+    \Procedure{Fib}{n}
+        \If{$n \leq 1$}
+            \State \Return $n$
+        \Else
+            \State \Return \Call{Fib}{$n-1$} + \Call{Fib}{$n-2$}
+        \EndIf
+    \EndProcedure
+    \end{algorithmic}
+\end{algorithm}
+
+\section*{Question 2}
+\subsection*{Problem Statement}
+For each of the following datasets where “◦” represents negative examples and “×” represents positive examples, write alongside each classifier whether it will have zero training error on the dataset. Also, explain why in one sentence or by drawing a decision boundary. No credit if the explanation is incorrect.
+
+\subsection*{Solution}
+
+\begin{tikzpicture}
+\begin{axis}[
+    xmin=0, xmax=5.5,
+    ymin=0, ymax=5.5,
+    axis lines=middle,
+    xtick={0,1,2,3,4,5},
+    ytick={0,1,2,3,4,5},
+    xlabel={$x$},
+    ylabel={$y$},
+    width=10cm,
+    height=10cm,
+    enlargelimits={abs=0.5},
+]
+
+% Plotting circles (o)
+\addplot[only marks, mark=o, mark size=3pt] coordinates {
+    (2,2) (2.5,2) (2,2.5) (2.5,2.5) (2.2,2.3)
+};
+
+% Plotting crosses (x)
+\addplot[only marks, mark=x, mark size=5pt] coordinates {
+    (3,3) (3.5,3.5) (4,3) (4.5,4) (3.5,4.2)
+};
+
+% Drawing red line from (2,4) to (1,5)
+\addplot[red, thick] coordinates {(1,4.5) (5,1)};
+
+\end{axis}
+\end{tikzpicture}
+
+
+\section*{Credits}
+These questions are taken from the \textit{\examtitle} of the Machine Learning course at the University of Texas at Dallas, and \examAuthor~in particular. The provided solutions are a collaborative effort of the students.
+
+\end{document}

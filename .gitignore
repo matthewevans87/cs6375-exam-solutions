@@ -1,0 +1,12 @@
+*
+
+!/readme.md
+!/.gitignore
+!/.vscode/
+!/.vscode/extensions.json
+
+!/exams/
+!/exams/**/
+!/exams/**/*.pdf
+!/exams/**/*_solutions.tex
+!/exams/**/*_solutions.pdf
